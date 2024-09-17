@@ -1,5 +1,5 @@
 {
-  "name": "microatividade4",
+  "name": "microatividade5",
   "version": "1.0.0",
   "main": "expo/AppEntry.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "@expo/metro-runtime": "~3.2.3",
     "expo": "~51.0.28",
     "expo-status-bar": "~1.12.1",
-    "microatividade4": "file:",
+    "microatividade5": "file:",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",

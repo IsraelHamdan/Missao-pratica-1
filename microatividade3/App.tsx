@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
-const logoURI = "https://reactnative.dev/img/tiny_logo.png";
-
 export default function App() {
   const logoCount = 6;
+  const logoURI = "https://reactnative.dev/img/tiny_logo.png";
+
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
       <Text style={styles.text}>Scroll me</Text>

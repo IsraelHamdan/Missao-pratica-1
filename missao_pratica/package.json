@@ -1,21 +1,25 @@
 {
-  "name": "microatividade4",
+  "name": "missao_pratica",
   "version": "1.0.0",
   "main": "expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "start:json-server": "json-server --watch db.json --port 3000"
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
+    "axios": "^1.7.7",
     "expo": "~51.0.28",
     "expo-status-bar": "~1.12.1",
-    "microatividade4": "file:",
+    "missao_pratica": "file:",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
+    "react-native-image-picker": "^7.1.2",
+    "react-native-paper": "^5.12.5",
     "react-native-web": "~0.19.10"
   },
   "devDependencies": {
