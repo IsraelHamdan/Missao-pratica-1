@@ -17,10 +17,6 @@ import {
 import { View, Image, SafeAreaView, StyleSheet } from "react-native";
 import { useState } from "react";
 
-interface ImagePickerProps {
-  onImageSelected: (uri: string) => void;
-}
-
 const ImagePicker = () => {
   const [imagemUri, setImagemUri] = useState<string | null>(null);
   const [visible, setVisible] = useState<boolean>(false);
@@ -93,6 +89,9 @@ const ImagePicker = () => {
     </Provider>
   );
 };
+
+export default ImagePicker;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

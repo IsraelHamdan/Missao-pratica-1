@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 import { useFornecedores, Fornecedor } from "../../hooks/useFornecedores";
-import { useEffect, useState } from "react";
-import { ActivityIndicator, MD2Colors, TextInput } from "react-native-paper";
 
+import {
+  Button,
+  ActivityIndicator,
+  MD2Colors,
+  shadow,
+  TextInput,
+} from "react-native-paper";
+import ImagePicker from "../ImagePicker/ImagePicker";
 const cadastro = () => {
   const [nome, setNome] = useState<string>("");
   const [cnpj, setCnpj] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [telefone, setTelefone] = useState<string>("");
-  const [produtos, setProdutos] = useState<string[]>([]);
   const [imagem, setImagem] = useState<string>("");
+
+  const imagePickerRef = useRef<{ showModal: () => void } | null>(null);
 
   const {
     fornecedores,
@@ -24,7 +31,7 @@ const cadastro = () => {
     findFornecedores();
   }, []);
 
-  const handlePostFornecedor = () => {
+  const handlePostFornecedor = async () => {
     const novoFornecedor: Fornecedor = {
       nome,
       email,
@@ -34,7 +41,7 @@ const cadastro = () => {
       imagem,
     };
     try {
-      postFornecedoresOnJSON(novoFornecedor);
+      await postFornecedoresOnJSON(novoFornecedor);
     } catch (errorMessage) {
       console.error(errorMessage);
     }
@@ -87,17 +94,12 @@ const cadastro = () => {
           placeholderTextColor="black"
           style={styles.textInput}
         />
-        <TextInput
-          label="imagem"
-          value={imagem}
-          onChangeText={setImagem}
-          placeholder="Digite o imagem do fornecedor"
-          outlineColor="#A594F9"
-          activeOutlineColor="#CDC1FF"
-          textColor="black"
-          placeholderTextColor="black"
-          style={styles.textInput}
-        />
+        <Button onPress={() => imagePickerRef.current?.showModal()}>
+          <ImagePicker />
+        </Button>
+        <Button style={styles.btn} onPress={handlePostFornecedor}>
+          Cadastrar fornecedor
+        </Button>
       </SafeAreaView>
 
       <StatusBar />
@@ -111,7 +113,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  textInput: {},
+  textInput: {
+    backgroundColor: "#F5EFFF",
+    color: "#000000",
+    gap: 1.5,
+  },
+  btn: {},
 });
 
 export default cadastro;

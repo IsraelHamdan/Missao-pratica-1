@@ -55,6 +55,11 @@ export const useFornecedores = () => {
     try {
       const novoFornecedor = await cadastro(fornecedor);
       if (novoFornecedor) {
+        console.log(
+          "🚀 ~ postFornecedoresOnJSON ~ novoFornecedor:",
+          novoFornecedor
+        );
+
         setFornecedores((prev) => [...prev, novoFornecedor]);
       }
     } catch (err: any) {
