@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { SafeAreaView, StatusBar, Text, View } from "react-native";
+import { SafeAreaView, StatusBar, Text, View, Animated } from "react-native";
 import { useFornecedores, Fornecedor } from "../../hooks/useFornecedores";
 import { Button, TextInput } from "react-native-paper";
 import ImagePicker from "../ImagePicker/ImagePicker";

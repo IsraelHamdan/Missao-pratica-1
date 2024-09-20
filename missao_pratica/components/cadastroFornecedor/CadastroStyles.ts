@@ -5,20 +5,20 @@ const Styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 20,
-    backgroundColor: "#F7F2FF", // A cor de fundo que você deseja
+    backgroundColor: "#F7F2FF",
   },
   textInput: {
     width: 300, // Defina a largura específica
-    height: 50, // Defina a altura para parecer um botão
+    height: 50,
     marginVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 10,
-    backgroundColor: "white",
-    borderWidth: 1,
-    borderColor: "#A594F9", // Cor da borda
+    backgroundColor: "#F7F2FF",
+    borderWidth: 3,
+    borderColor: "#A594F9",
   },
   title: {
-    fontFamily: "LilyScriptOne_400Regular ",
+    fontFamily: "LilyScriptOne_400Regular",
     fontSize: 46,
     color: "#A594F9",
     marginBottom: 20,
@@ -29,19 +29,23 @@ const Styles = StyleSheet.create({
     marginTop: 20,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F7F2FF",
+    backgroundColor: "#A594F9",
     borderRadius: 10,
-    borderBlockColor: "#A594F9",
+    borderWidth: 3,
+    borderColor: "rgba(165, 148, 249, 1)",
+    color: "black",
+    fontWeight: "bold",
   },
   btnPhoto: {
-    width: 300, // Mesmo tamanho dos inputs
+    width: 300,
     height: 150,
     marginTop: 20,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F7F2FF",
     borderRadius: 10,
-    borderColor: "#A594F9",
+    borderWidth: 3,
+    borderColor: "rgba(165, 148, 249, 1)",
   },
 });
 

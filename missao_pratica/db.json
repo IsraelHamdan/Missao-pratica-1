@@ -6,6 +6,20 @@
       "email": "xpto@gmail.com",
       "telefone": "123456",
       "cnpj": "789564353"
+    },
+    {
+      "id": "f62c",
+      "nome": "Expert Pré-vest",
+      "email": "expertprevestcon@gmail.com",
+      "telefone": "7335257045",
+      "cnpj": "91462045000133"
+    },
+    {
+      "id": "6d77",
+      "nome": "millycakes",
+      "email": "Exemplo@email.com",
+      "telefone": "73988213456",
+      "cnpj": "35049120000168"
     }
   ]
 }

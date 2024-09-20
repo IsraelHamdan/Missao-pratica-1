@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
-const api = "http://localhost:3000/fornecedores";
+const api = "http://192.168.1.11:3000/fornecedores";
 import { Produto } from "./useProdutos";
 
 export interface Fornecedor {
   nome: string;
   cnpj: string;
   telefone: string;
-
   email: string;
   imagem?: string;
 }
@@ -15,6 +14,7 @@ export interface Fornecedor {
 const cadastro = async (fornecedor: Fornecedor) => {
   try {
     const res = await axios.post(api, fornecedor);
+    if (res) console.log(res);
     return res.data;
   } catch (err) {
     console.log(err);
