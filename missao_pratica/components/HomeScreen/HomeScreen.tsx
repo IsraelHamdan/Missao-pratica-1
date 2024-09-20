@@ -3,16 +3,7 @@ import { View, StyleSheet, SafeAreaView } from "react-native";
 import { Text, Button } from "react-native-paper";
 import Styles from "./HomeScreenStyles";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../App";
-export type HomeScreenNavigationProps = StackNavigationProp<
-  RootStackParamList,
-  "Home",
-  "Cadastro"
->;
-type Props = {
-  navigation: HomeScreenNavigationProps;
-};
-
+import { Props } from "../../utils/Props";
 const HomeScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView style={Styles.continer}>

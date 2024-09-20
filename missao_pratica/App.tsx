@@ -9,11 +9,8 @@ import { LilyScriptOne_400Regular } from "@expo-google-fonts/lily-script-one";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
+import { Props, RootStackParamList } from "./utils/Props";
 
-export type RootStackParamList = {
-  Home: undefined;
-  Cadastro: undefined;
-};
 const Stack = createStackNavigator<RootStackParamList>();
 SplashScreen.preventAutoHideAsync();
 export default function App() {

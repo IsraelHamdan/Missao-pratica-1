@@ -20,6 +20,13 @@
       "email": "Exemplo@email.com",
       "telefone": "73988213456",
       "cnpj": "35049120000168"
+    },
+    {
+      "id": "1877",
+      "nome": "valmiksanduiche",
+      "email": "valmikmeira@gmail.com",
+      "telefone": "+55 73 8256-9699",
+      "cnpj": "52237501000190"
     }
   ]
 }

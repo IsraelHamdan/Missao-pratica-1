@@ -4,8 +4,11 @@ import { useFornecedores, Fornecedor } from "../../hooks/useFornecedores";
 import { Button, TextInput } from "react-native-paper";
 import ImagePicker from "../ImagePicker/ImagePicker";
 import Styles from "./CadastroStyles";
+import { useNavigation } from "@react-navigation/native";
+import HomeScreen from "../HomeScreen/HomeScreen";
+import { Props } from "../../utils/Props";
 
-const Cadastro = () => {
+const Cadastro: React.FC<Props> = ({ navigation }) => {
   const [nome, setNome] = useState<string>("");
   const [cnpj, setCnpj] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -35,6 +38,7 @@ const Cadastro = () => {
     };
     try {
       await postFornecedoresOnJSON(novoFornecedor);
+      navigation.navigate("Home");
     } catch (errorMessage) {
       console.error(errorMessage);
     }
