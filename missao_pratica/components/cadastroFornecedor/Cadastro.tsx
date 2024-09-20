@@ -1,16 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 import { useFornecedores, Fornecedor } from "../../hooks/useFornecedores";
-
-import {
-  Button,
-  ActivityIndicator,
-  MD2Colors,
-  shadow,
-  TextInput,
-} from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
 import ImagePicker from "../ImagePicker/ImagePicker";
-const cadastro = () => {
+const Cadastro = () => {
   const [nome, setNome] = useState<string>("");
   const [cnpj, setCnpj] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -37,8 +30,6 @@ const cadastro = () => {
       email,
       telefone,
       cnpj,
-      produtos: [],
-      imagem,
     };
     try {
       await postFornecedoresOnJSON(novoFornecedor);
@@ -112,6 +103,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    fontFamily: "JosefinSans_400Regular",
   },
   textInput: {
     backgroundColor: "#F5EFFF",
@@ -121,4 +113,4 @@ const styles = StyleSheet.create({
   btn: {},
 });
 
-export default cadastro;
+export default Cadastro;

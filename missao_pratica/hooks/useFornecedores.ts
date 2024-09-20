@@ -7,9 +7,9 @@ export interface Fornecedor {
   nome: string;
   cnpj: string;
   telefone: string;
-  produtos: Produto[];
+
   email: string;
-  imagem: string;
+  imagem?: string;
 }
 
 const cadastro = async (fornecedor: Fornecedor) => {

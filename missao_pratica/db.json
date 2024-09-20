@@ -1,0 +1,11 @@
+{
+  "fornecedores": [
+    {
+      "id": "e432",
+      "nome": "XPTO.LTDA",
+      "email": "xpto@gmail.com",
+      "telefone": "123456",
+      "cnpj": "789564353"
+    }
+  ]
+}
