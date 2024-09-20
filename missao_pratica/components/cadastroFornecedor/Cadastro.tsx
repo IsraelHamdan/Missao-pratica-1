@@ -1,8 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StatusBar, Text, View } from "react-native";
 import { useFornecedores, Fornecedor } from "../../hooks/useFornecedores";
 import { Button, TextInput } from "react-native-paper";
 import ImagePicker from "../ImagePicker/ImagePicker";
+import Styles from "./CadastroStyles";
+
 const Cadastro = () => {
   const [nome, setNome] = useState<string>("");
   const [cnpj, setCnpj] = useState<string>("");
@@ -38,8 +40,8 @@ const Cadastro = () => {
     }
   };
   return (
-    <View style={styles.container}>
-      <Text>Cadastre o fornecedor</Text>
+    <View style={Styles.container}>
+      <Text style={Styles.title}>Cadastre o fornecedor</Text>
       <SafeAreaView>
         <TextInput
           label="nome"
@@ -50,7 +52,7 @@ const Cadastro = () => {
           activeOutlineColor="#CDC1FF"
           textColor="black"
           placeholderTextColor="black"
-          style={styles.textInput}
+          style={Styles.textInput}
         />
         <TextInput
           label="cnpj"
@@ -61,7 +63,7 @@ const Cadastro = () => {
           activeOutlineColor="#CDC1FF"
           textColor="black"
           placeholderTextColor="black"
-          style={styles.textInput}
+          style={Styles.textInput}
         />
         <TextInput
           label="email"
@@ -72,7 +74,7 @@ const Cadastro = () => {
           activeOutlineColor="#CDC1FF"
           textColor="black"
           placeholderTextColor="black"
-          style={styles.textInput}
+          style={Styles.textInput}
         />
         <TextInput
           label="telefone"
@@ -83,12 +85,14 @@ const Cadastro = () => {
           activeOutlineColor="#CDC1FF"
           textColor="black"
           placeholderTextColor="black"
-          style={styles.textInput}
+          style={Styles.textInput}
         />
-        <Button onPress={() => imagePickerRef.current?.showModal()}>
+        <Button
+          style={Styles.btnPhoto}
+          onPress={() => imagePickerRef.current?.showModal()}>
           <ImagePicker />
         </Button>
-        <Button style={styles.btn} onPress={handlePostFornecedor}>
+        <Button style={Styles.btn} onPress={handlePostFornecedor}>
           Cadastrar fornecedor
         </Button>
       </SafeAreaView>
@@ -97,20 +101,5 @@ const Cadastro = () => {
     </View>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    fontFamily: "JosefinSans_400Regular",
-  },
-  textInput: {
-    backgroundColor: "#F5EFFF",
-    color: "#000000",
-    gap: 1.5,
-  },
-  btn: {},
-});
 
 export default Cadastro;

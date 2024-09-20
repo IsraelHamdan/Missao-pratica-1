@@ -14,8 +14,9 @@ import {
   Provider,
   Text,
 } from "react-native-paper";
-import { View, Image, SafeAreaView, StyleSheet } from "react-native";
+import { View, Image } from "react-native";
 import { useState } from "react";
+import Styles from "./ImagePickerStyles";
 
 const ImagePicker = () => {
   const [imagemUri, setImagemUri] = useState<string | null>(null);
@@ -61,9 +62,9 @@ const ImagePicker = () => {
       <Button>
         <Icon size={20} source="image" />
       </Button>
-      <View style={styles.view}>
+      <View style={Styles.view}>
         {imagemUri ? (
-          <Image source={{ uri: imagemUri }} style={styles.image} />
+          <Image source={{ uri: imagemUri }} style={Styles.image} />
         ) : (
           <Text>Imagem não selecionada!!</Text>
         )}
@@ -72,16 +73,16 @@ const ImagePicker = () => {
         <Modal
           visible={visible}
           onDismiss={hideModal}
-          contentContainerStyle={styles.modal}>
+          contentContainerStyle={Styles.modal}>
           <Text>Selecione uma foto</Text>
-          <Button mode="contained" onPress={takePhoto} style={styles.button}>
+          <Button mode="contained" onPress={takePhoto} style={Styles.button}>
             <Icon size={20} source="camera" color={MD3Colors.error50} />
           </Button>
           <Text>Escolha da galeria</Text>
           <Button
             mode="contained"
             onPress={selectFromGalery}
-            style={styles.button}>
+            style={Styles.button}>
             <Icon size={20} source="galery" color={MD3Colors.error50} />
           </Button>
         </Modal>
@@ -91,24 +92,3 @@ const ImagePicker = () => {
 };
 
 export default ImagePicker;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  view: {
-    alignItems: "center",
-    marginVertical: 20,
-  },
-  image: {
-    width: 100,
-    height: 100,
-  },
-  modal: {
-    backgroundColor: "white",
-    padding: 20,
-  },
-  button: {
-    marginVertical: 10,
-  },
-});
