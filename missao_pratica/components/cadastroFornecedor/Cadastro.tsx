@@ -1,12 +1,22 @@
 import React, { useRef, useEffect, useState } from "react";
-import { SafeAreaView, StatusBar, Text, View, Animated } from "react-native";
+import {
+  SafeAreaView,
+  StatusBar,
+  Text,
+  View,
+  Animated,
+  TouchableOpacity,
+} from "react-native";
 import { useFornecedores, Fornecedor } from "../../hooks/useFornecedores";
 import { Button, TextInput } from "react-native-paper";
 import ImagePicker from "../ImagePicker/ImagePicker";
 import Styles from "./CadastroStyles";
-import { useNavigation } from "@react-navigation/native";
-import HomeScreen from "../HomeScreen/HomeScreen";
 import { Props } from "../../utils/Props";
+
+type ImagePickerHandle = {
+  showModal: () => void;
+  hideModal: () => void;
+};
 
 const Cadastro: React.FC<Props> = ({ navigation }) => {
   const [nome, setNome] = useState<string>("");
@@ -15,7 +25,7 @@ const Cadastro: React.FC<Props> = ({ navigation }) => {
   const [telefone, setTelefone] = useState<string>("");
   const [imagem, setImagem] = useState<string>("");
 
-  const imagePickerRef = useRef<{ showModal: () => void } | null>(null);
+  const imagePickerRef = useRef<ImagePickerHandle>(null);
 
   const {
     fornecedores,
@@ -35,6 +45,7 @@ const Cadastro: React.FC<Props> = ({ navigation }) => {
       email,
       telefone,
       cnpj,
+      imagem,
     };
     try {
       await postFornecedoresOnJSON(novoFornecedor);
@@ -91,14 +102,14 @@ const Cadastro: React.FC<Props> = ({ navigation }) => {
           placeholderTextColor="black"
           style={Styles.textInput}
         />
-        <Button
+        <TouchableOpacity
           style={Styles.btnPhoto}
           onPress={() => imagePickerRef.current?.showModal()}>
-          <ImagePicker />
-        </Button>
-        <Button style={Styles.btn} onPress={handlePostFornecedor}>
-          Cadastrar fornecedor
-        </Button>
+          <ImagePicker ref={imagePickerRef} />
+        </TouchableOpacity>
+        <TouchableOpacity style={Styles.btn} onPress={handlePostFornecedor}>
+          <Text style={Styles.btnText}>Cadastrar fornecedor</Text>
+        </TouchableOpacity>
       </SafeAreaView>
 
       <StatusBar />

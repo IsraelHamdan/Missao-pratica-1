@@ -47,6 +47,11 @@ const Styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: "rgba(165, 148, 249, 1)",
   },
+  btnText: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
 });
 
 export default Styles;

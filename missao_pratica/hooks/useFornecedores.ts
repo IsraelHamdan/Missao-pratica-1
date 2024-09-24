@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import useMedia from "./useMedia";
 const api = "http://192.168.1.11:3000/fornecedores";
-import { Produto } from "./useProdutos";
 
 export interface Fornecedor {
   nome: string;
@@ -35,6 +35,7 @@ export const useFornecedores = () => {
   const [fornecedores, setFornecedores] = useState<Fornecedor[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const { handleTakeGalleryImage } = useMedia();
 
   const findFornecedores = async () => {
     setIsLoading(true);
@@ -51,15 +52,14 @@ export const useFornecedores = () => {
   const postFornecedoresOnJSON = async (fornecedor: Fornecedor) => {
     setIsLoading(true);
     setErrorMessage(null);
-
     try {
-      const novoFornecedor = await cadastro(fornecedor);
+      const base64Image = await handleTakeGalleryImage();
+      const fornecedorcomImagem = {
+        ...fornecedor,
+        imagem: base64Image || "",
+      };
+      const novoFornecedor = await cadastro(fornecedorcomImagem);
       if (novoFornecedor) {
-        console.log(
-          "🚀 ~ postFornecedoresOnJSON ~ novoFornecedor:",
-          novoFornecedor
-        );
-
         setFornecedores((prev) => [...prev, novoFornecedor]);
       }
     } catch (err: any) {
