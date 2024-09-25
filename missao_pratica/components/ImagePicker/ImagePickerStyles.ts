@@ -1,12 +1,17 @@
 import { StyleSheet, Dimensions } from "react-native";
 const { width, height } = Dimensions.get("window");
 const Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   view: {
     alignItems: "center",
+    justifyContent: "center",
     marginVertical: 20,
+  },
+  portalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    position: "relative",
   },
   image: {
     width: 100,
@@ -14,21 +19,33 @@ const Styles = StyleSheet.create({
   },
   icons: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
     height: 100,
+    width: 100,
+    position: "absolute",
+    transform: [{ translateX: 30 }, { translateY: -35 }],
+  },
+  btn: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   modal: {
     backgroundColor: "#F7F2FF",
-    padding: 20,
-    borderRadius: 10,
-    alignItems: "center",
+    overflow: "visible",
+    position: "absolute",
     justifyContent: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    width: "100%",
+    alignItems: "center",
+    padding: 20,
+    width: "80%",
+    height: "110%",
+    marginLeft: "auto",
+    marginRight: "auto",
+    borderRadius: 10,
+    transform: [{ translateX: -115 }, { translateY: -60 }],
+    top: "50%",
+    left: "50%",
   },
   button: {
     flexDirection: "row",
@@ -39,6 +56,14 @@ const Styles = StyleSheet.create({
     width: width * 0.3,
     justifyContent: "center",
     marginVertical: 10,
+  },
+  textBtn: {
+    marginBottom: 10,
+    color: "rgba(165, 148, 249, 1)",
+    fontSize: 18,
+    fontWeight: "bold",
+    fontFamily: "JosefinSans_400Regular",
+    fontStyle: "italic",
   },
 });
 

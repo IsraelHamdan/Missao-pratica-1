@@ -5,6 +5,7 @@ import {
   Text,
   View,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import { useFornecedores, Fornecedor } from "../../hooks/useFornecedores";
 import { TextInput } from "react-native-paper";
@@ -55,63 +56,65 @@ const Cadastro: React.FC<Props> = ({ navigation }) => {
   };
   return (
     <SafeAreaView style={Styles.container}>
-      <Text style={Styles.title}>Cadastre o fornecedor</Text>
-      <View>
-        <TextInput
-          label="nome"
-          value={nome}
-          onChangeText={setNome}
-          placeholder="Digite o nome do fornecedor"
-          outlineColor="#A594F9"
-          activeOutlineColor="#CDC1FF"
-          textColor="black"
-          placeholderTextColor="black"
-          style={Styles.textInput}
-        />
-        <TextInput
-          label="cnpj"
-          value={cnpj}
-          onChangeText={setCnpj}
-          placeholder="Digite o CNPJ do fornecedor"
-          outlineColor="#A594F9"
-          activeOutlineColor="#CDC1FF"
-          textColor="black"
-          placeholderTextColor="black"
-          style={Styles.textInput}
-        />
-        <TextInput
-          label="email"
-          value={email}
-          onChangeText={setEmail}
-          placeholder="Digite o email do fornecedor"
-          outlineColor="#A594F9"
-          activeOutlineColor="#CDC1FF"
-          textColor="black"
-          placeholderTextColor="black"
-          style={Styles.textInput}
-        />
-        <TextInput
-          label="telefone"
-          value={telefone}
-          onChangeText={setTelefone}
-          placeholder="Digite o telefone do fornecedor"
-          outlineColor="#A594F9"
-          activeOutlineColor="#CDC1FF"
-          textColor="black"
-          placeholderTextColor="black"
-          style={Styles.textInput}
-        />
-        <TouchableOpacity
-          style={Styles.btnPhoto}
-          onPress={() => imagePickerRef.current?.showModal()}>
-          <ImagePicker ref={imagePickerRef} />
-        </TouchableOpacity>
+      <ScrollView>
+        <Text style={Styles.title}>Cadastre o fornecedor</Text>
         <View>
-          <TouchableOpacity style={Styles.btn} onPress={handlePostFornecedor}>
-            <Text style={Styles.btnText}>Cadastrar fornecedor</Text>
+          <TextInput
+            label="nome"
+            value={nome}
+            onChangeText={setNome}
+            placeholder="Digite o nome do fornecedor"
+            outlineColor="#A594F9"
+            activeOutlineColor="#CDC1FF"
+            textColor="black"
+            placeholderTextColor="black"
+            style={Styles.textInput}
+          />
+          <TextInput
+            label="cnpj"
+            value={cnpj}
+            onChangeText={setCnpj}
+            placeholder="Digite o CNPJ do fornecedor"
+            outlineColor="#A594F9"
+            activeOutlineColor="#CDC1FF"
+            textColor="black"
+            placeholderTextColor="black"
+            style={Styles.textInput}
+          />
+          <TextInput
+            label="email"
+            value={email}
+            onChangeText={setEmail}
+            placeholder="Digite o email do fornecedor"
+            outlineColor="#A594F9"
+            activeOutlineColor="#CDC1FF"
+            textColor="black"
+            placeholderTextColor="black"
+            style={Styles.textInput}
+          />
+          <TextInput
+            label="telefone"
+            value={telefone}
+            onChangeText={setTelefone}
+            placeholder="Digite o telefone do fornecedor"
+            outlineColor="#A594F9"
+            activeOutlineColor="#CDC1FF"
+            textColor="black"
+            placeholderTextColor="black"
+            style={Styles.textInput}
+          />
+          <TouchableOpacity
+            style={Styles.btnPhoto}
+            onPress={() => imagePickerRef.current?.showModal()}>
+            <ImagePicker ref={imagePickerRef} />
           </TouchableOpacity>
+          <View>
+            <TouchableOpacity style={Styles.btn} onPress={handlePostFornecedor}>
+              <Text style={Styles.btnText}>Cadastrar fornecedor</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

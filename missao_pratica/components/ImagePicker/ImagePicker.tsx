@@ -33,24 +33,24 @@ const ImagePicker = forwardRef((props, ref) => {
           </View>
         ) : (
           <Portal>
-            <Button>
-              <Icon size={50} source="image" color="#A594F9" />
-            </Button>
-            <Modal
-              visible={visible}
-              onDismiss={hideModal}
-              contentContainerStyle={Styles.modal}>
-              <Text>Escolha da galeria</Text>
-              <Button
-                mode="contained"
-                onPress={handleTakeGalleryImage}
-                style={Styles.button}>
-                <Ionicons size={48} color={"#A594F9"} name="image" />
-              </Button>
-            </Modal>
-            <Button onPress={hideModal}>
-              <Fontisto name="close-a" size={40} color="#D91656" />
-            </Button>
+            {!visible ? (
+              <View style={Styles.btn}>
+                <Icon size={50} source="image" color="#A594F9" />
+                <Text style={Styles.textBtn}>Escolha uma imagem</Text>
+              </View>
+            ) : (
+              <Modal
+                visible={visible}
+                onDismiss={hideModal}
+                contentContainerStyle={Styles.modal}>
+                <Text>Escolha da galeria</Text>
+                <Button mode="contained-tonal" onPress={handleTakeGalleryImage}>
+                  <View style={Styles.icons}>
+                    <Ionicons size={48} color={"#A594F9"} name="image" />
+                  </View>
+                </Button>
+              </Modal>
+            )}
           </Portal>
         )}
       </View>

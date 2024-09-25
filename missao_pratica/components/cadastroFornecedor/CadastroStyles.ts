@@ -25,6 +25,10 @@ const Styles = StyleSheet.create({
     fontSize: 46,
     color: "#A594F9",
     marginBottom: 20,
+    marginTop: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    transform: [{ translateX: 45 }],
   },
   btn: {
     width: width * 0.8, // Mesmo tamanho dos inputs
@@ -43,12 +47,12 @@ const Styles = StyleSheet.create({
     width: width * 0.8,
     height: 150,
     marginTop: 20,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "space-around",
     backgroundColor: "#F7F2FF",
     borderRadius: 10,
     borderWidth: 3,
     borderColor: "rgba(165, 148, 249, 1)",
+    padding: 10,
   },
   btnText: {
     fontFamily: "JosefinSans_400Regular",
