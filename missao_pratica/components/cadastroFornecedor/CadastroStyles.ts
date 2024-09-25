@@ -51,9 +51,10 @@ const Styles = StyleSheet.create({
     borderColor: "rgba(165, 148, 249, 1)",
   },
   btnText: {
-    color: "black",
+    fontFamily: "JosefinSans_400Regular",
     fontWeight: "bold",
     fontSize: 16,
+    color: "#000",
   },
 });
 

@@ -10,11 +10,12 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     width: width,
   },
+  titleView: {},
+
   h1: {
     fontSize: 66,
     color: "#A594F9",
     fontFamily: "LilyScriptOne_400Regular",
-    marginBottom: 10,
   },
 
   btnView: {
@@ -33,7 +34,12 @@ const Styles = StyleSheet.create({
     marginVertical: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+  textBtn: {
     fontFamily: "JosefinSans_400Regular",
+    fontWeight: "bold",
+    fontSize: 16,
+    color: "#A584F8",
   },
 });
 

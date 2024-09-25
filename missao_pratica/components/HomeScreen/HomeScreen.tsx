@@ -13,21 +13,15 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
         <Button
           style={Styles.btn}
           onPress={() => navigation.navigate("Cadastro")}>
-          Cadastrar fornecedor
+          <Text style={Styles.textBtn}>Cadastrar fornecedor</Text>
         </Button>
         <Button
           style={Styles.btn}
           onPress={() => {
             navigation.navigate("Lista");
           }}>
-          Listar fornecedores
+          <Text style={Styles.textBtn}>Listar fornecedores</Text>
         </Button>
-        {/* <Button style={Styles.btn} onPress={() => {}}>
-          Cadastrar produtos
-        </Button>
-        <Button style={Styles.btn} onPress={() => {}}>
-          Listar produtos
-        </Button> */}
       </View>
     </SafeAreaView>
   );
