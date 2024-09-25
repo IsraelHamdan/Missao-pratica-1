@@ -1,8 +1,7 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import { Text, Button } from "react-native-paper";
 import Styles from "./HomeScreenStyles";
-import { StackNavigationProp } from "@react-navigation/stack";
 import { Props } from "../../utils/Props";
 const HomeScreen: React.FC<Props> = ({ navigation }) => {
   return (
@@ -16,7 +15,11 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
           onPress={() => navigation.navigate("Cadastro")}>
           Cadastrar fornecedor
         </Button>
-        <Button style={Styles.btn} onPress={() => {}}>
+        <Button
+          style={Styles.btn}
+          onPress={() => {
+            navigation.navigate("Lista");
+          }}>
           Listar fornecedores
         </Button>
         {/* <Button style={Styles.btn} onPress={() => {}}>

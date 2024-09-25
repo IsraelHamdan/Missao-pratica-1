@@ -10,6 +10,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import { Props, RootStackParamList } from "./utils/Props";
+import ListaFornecedores from "./components/ListaFornecedor/ListaFornecedor";
 
 const Stack = createStackNavigator<RootStackParamList>();
 SplashScreen.preventAutoHideAsync();
@@ -41,6 +42,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Cadastro" component={Cadastro} />
+          <Stack.Screen name="Lista" component={ListaFornecedores} />
         </Stack.Navigator>
       </PaperProvider>
     </NavigationContainer>

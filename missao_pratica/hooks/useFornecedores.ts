@@ -56,10 +56,14 @@ export const useFornecedores = () => {
       const base64Image = await handleTakeGalleryImage();
       const fornecedorcomImagem = {
         ...fornecedor,
-        imagem: base64Image || "",
+        imagem: base64Image !== null ? base64Image : "",
       };
       const novoFornecedor = await cadastro(fornecedorcomImagem);
       if (novoFornecedor) {
+        console.log(
+          "🚀 ~ postFornecedoresOnJSON ~ novoFornecedor:",
+          novoFornecedor
+        );
         setFornecedores((prev) => [...prev, novoFornecedor]);
       }
     } catch (err: any) {

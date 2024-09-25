@@ -4,11 +4,10 @@ import {
   StatusBar,
   Text,
   View,
-  Animated,
   TouchableOpacity,
 } from "react-native";
 import { useFornecedores, Fornecedor } from "../../hooks/useFornecedores";
-import { Button, TextInput } from "react-native-paper";
+import { TextInput } from "react-native-paper";
 import ImagePicker from "../ImagePicker/ImagePicker";
 import Styles from "./CadastroStyles";
 import { Props } from "../../utils/Props";
