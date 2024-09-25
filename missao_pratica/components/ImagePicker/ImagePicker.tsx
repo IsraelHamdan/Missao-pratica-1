@@ -28,7 +28,7 @@ const ImagePicker = forwardRef((props, ref) => {
     <Provider>
       <View style={Styles.view}>
         {uri ? (
-          <View style={Styles.icons}>
+          <View>
             <Ionicons size={100} color={"#A594F9"} name="checkmark-circle" />
           </View>
         ) : (

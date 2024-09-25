@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import useMedia from "./useMedia";
-const api = "http://192.168.1.11:3000/fornecedores";
+const api = "http:// 192.168.0.119:3000/fornecedores";
 
 export interface Fornecedor {
   nome: string;
@@ -53,12 +53,7 @@ export const useFornecedores = () => {
     setIsLoading(true);
     setErrorMessage(null);
     try {
-      const base64Image = await handleTakeGalleryImage();
-      const fornecedorcomImagem = {
-        ...fornecedor,
-        imagem: base64Image !== null ? base64Image : "",
-      };
-      const novoFornecedor = await cadastro(fornecedorcomImagem);
+      const novoFornecedor = await cadastro(fornecedor);
       if (novoFornecedor) {
         console.log(
           "🚀 ~ postFornecedoresOnJSON ~ novoFornecedor:",
