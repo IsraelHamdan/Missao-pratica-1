@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+const { width } = Dimensions.get("window");
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -6,9 +7,11 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     backgroundColor: "#F7F2FF",
+    width: width,
+    height: width,
   },
   textInput: {
-    width: 300, // Defina a largura específica
+    width: width * 0.8, // Defina a largura específica
     height: 50,
     marginVertical: 10,
     paddingHorizontal: 15,
@@ -24,7 +27,7 @@ const Styles = StyleSheet.create({
     marginBottom: 20,
   },
   btn: {
-    width: 300, // Mesmo tamanho dos inputs
+    width: width * 0.8, // Mesmo tamanho dos inputs
     height: 50,
     marginTop: 20,
     justifyContent: "center",
@@ -37,7 +40,7 @@ const Styles = StyleSheet.create({
     fontWeight: "bold",
   },
   btnPhoto: {
-    width: 300,
+    width: width * 0.8,
     height: 150,
     marginTop: 20,
     justifyContent: "center",

@@ -6,12 +6,12 @@ import {
   Provider,
   Text,
 } from "react-native-paper";
-import { View, Image, Alert } from "react-native";
+import { View } from "react-native";
 import { useState, forwardRef, useImperativeHandle } from "react";
 import Styles from "./ImagePickerStyles";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import useMedia from "../../hooks/useMedia";
+import Fontisto from "@expo/vector-icons/Fontisto";
 
 const ImagePicker = forwardRef((props, ref) => {
   const [visible, setVisible] = useState<boolean>(false);
@@ -26,37 +26,34 @@ const ImagePicker = forwardRef((props, ref) => {
 
   return (
     <Provider>
-      <Button>
-        <Icon size={20} source="image" />
-      </Button>
       <View style={Styles.view}>
         {uri ? (
-          <Image source={{ uri }} style={Styles.image} />
+          <View style={Styles.icons}>
+            <Ionicons size={100} color={"#A594F9"} name="checkmark-circle" />
+          </View>
         ) : (
-          <Text>Imagem não selecionada!!</Text>
+          <Portal>
+            <Button>
+              <Icon size={50} source="image" color="#A594F9" />
+            </Button>
+            <Modal
+              visible={visible}
+              onDismiss={hideModal}
+              contentContainerStyle={Styles.modal}>
+              <Text>Escolha da galeria</Text>
+              <Button
+                mode="contained"
+                onPress={handleTakeGalleryImage}
+                style={Styles.button}>
+                <Ionicons size={48} color={"#A594F9"} name="image" />
+              </Button>
+            </Modal>
+            <Button onPress={hideModal}>
+              <Fontisto name="close-a" size={40} color="#D91656" />
+            </Button>
+          </Portal>
         )}
       </View>
-      <Portal>
-        <Modal
-          visible={visible}
-          onDismiss={hideModal}
-          contentContainerStyle={Styles.modal}>
-          {/* <Text>Selecione uma foto</Text>
-          <Button
-            mode="contained"
-            onPress={handleTakePhoto}
-            style={Styles.button}>
-            <MaterialIcons name="camera-alt" size={24} color={"#A594F9"} />
-          </Button> */}
-          <Text>Escolha da galeria</Text>
-          <Button
-            mode="contained"
-            onPress={handleTakeGalleryImage}
-            style={Styles.button}>
-            <Ionicons size={24} color={"#A594F9"} name="image" />
-          </Button>
-        </Modal>
-      </Portal>
     </Provider>
   );
 });

@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+const { width, height } = Dimensions.get("window");
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -9,6 +10,12 @@ const Styles = StyleSheet.create({
   },
   image: {
     width: 100,
+    height: 100,
+  },
+  icons: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     height: 100,
   },
   modal: {
@@ -27,10 +34,9 @@ const Styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 15,
-    // backgroundColor: "#A594F9",
     borderRadius: 10,
     marginBottom: 10,
-    width: "100%",
+    width: width * 0.3,
     justifyContent: "center",
     marginVertical: 10,
   },

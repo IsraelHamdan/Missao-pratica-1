@@ -54,9 +54,9 @@ const Cadastro: React.FC<Props> = ({ navigation }) => {
     }
   };
   return (
-    <View style={Styles.container}>
+    <SafeAreaView style={Styles.container}>
       <Text style={Styles.title}>Cadastre o fornecedor</Text>
-      <SafeAreaView>
+      <View>
         <TextInput
           label="nome"
           value={nome}
@@ -106,13 +106,13 @@ const Cadastro: React.FC<Props> = ({ navigation }) => {
           onPress={() => imagePickerRef.current?.showModal()}>
           <ImagePicker ref={imagePickerRef} />
         </TouchableOpacity>
-        <TouchableOpacity style={Styles.btn} onPress={handlePostFornecedor}>
-          <Text style={Styles.btnText}>Cadastrar fornecedor</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
-
-      <StatusBar />
-    </View>
+        <View>
+          <TouchableOpacity style={Styles.btn} onPress={handlePostFornecedor}>
+            <Text style={Styles.btnText}>Cadastrar fornecedor</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
 

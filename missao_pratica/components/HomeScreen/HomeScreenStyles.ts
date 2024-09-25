@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-
+import { StyleSheet, Dimensions } from "react-native";
+const { width } = Dimensions.get("window");
 const Styles = StyleSheet.create({
   continer: {
     flex: 1,
@@ -8,26 +8,24 @@ const Styles = StyleSheet.create({
     height: "100%",
     fontFamily: "JosefinSans_400Regular",
     alignItems: "center",
-    width: "100%",
+    width: width,
   },
   h1: {
-    fontSize: 46,
+    fontSize: 66,
     color: "#A594F9",
     fontFamily: "LilyScriptOne_400Regular",
-    marginBottom: 20,
+    marginBottom: 10,
   },
-  titleView: {
-    marginTop: "1%",
-  },
+
   btnView: {
-    margin: "10%",
+    margin: width * 0.1,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-around",
   },
   btn: {
     backgroundColor: "#F5EFFF",
-    width: 250,
+    width: width * 0.8,
     height: 50,
     borderColor: "#A594F9",
     borderRadius: 10,
