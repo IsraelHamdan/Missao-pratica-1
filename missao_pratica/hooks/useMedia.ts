@@ -20,7 +20,7 @@ const requestPermissionToAcessGallery = async () => {
     return { granted: false };
   }
 };
-// seleciona a imagem da galeria e retorna o endereço dela
+// seleciona a imagem da galeria
 const selectImageFromGallery = async () => {
   const permission = await requestPermissionToAcessGallery();
   if (!permission?.granted) {

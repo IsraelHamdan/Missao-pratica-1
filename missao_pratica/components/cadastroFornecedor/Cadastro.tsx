@@ -68,12 +68,6 @@ const Cadastro: React.FC<Props> = ({ navigation }) => {
       console.error(errorMessage);
     }
   };
-
-  const handleCategoriasChange = (text: string) => {
-    const newCategorias = text.split("");
-    setCategorias(newCategorias);
-  };
-
   return (
     <SafeAreaView style={Styles.container}>
       <ScrollView>

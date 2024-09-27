@@ -45,6 +45,10 @@ const ListaFornecedores: React.FC<Props> = ({ navigation }) => {
 export default ListaFornecedores;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+  },
   btn: {
     width: 300,
     height: 50,

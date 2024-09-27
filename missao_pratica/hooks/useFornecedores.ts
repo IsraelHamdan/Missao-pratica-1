@@ -52,11 +52,6 @@ export const useFornecedores = () => {
       setIsLoading(false);
     }
   };
-
-  const convertCategorias = (categoriasString: string): string[] => {
-    return categoriasString.split(",").map((cat) => cat.trim());
-  };
-
   const handleSaveFornecedor = async (
     fornecedor: Partial<Fornecedor>
   ): Promise<void> => {
