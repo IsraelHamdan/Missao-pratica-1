@@ -1,4 +1,3 @@
-import { BlurView } from "@react-native-community/blur";
 import Styles from "./CardFornecedorStyles";
 import React from "react";
 import { View, Image, Text } from "react-native";
@@ -11,19 +10,29 @@ interface CardFornecedorProps {
 const CardFornecedor: React.FC<CardFornecedorProps> = ({ fornecedor }) => {
   return (
     <View style={Styles.card}>
-      <Image style={Styles.cardImage} source={{ uri: fornecedor.imagem }} />
+      <Image
+        style={Styles.cardImage}
+        source={{ uri: fornecedor.imagem }}
+        resizeMode="stretch"
+      />
       <View style={Styles.textContainer}>
         <View style={Styles.cardsInfoRow}>
-          <Text style={Styles.cardInfo}>Nome: </Text>
+          <Text style={Styles.cardInfo}>Nome </Text>
           <Text style={Styles.cardInfoText}>{fornecedor.nome}</Text>
         </View>
         <View style={Styles.cardsInfoRow}>
-          <Text style={Styles.cardInfo}>CNPJ: </Text>
+          <Text style={Styles.cardInfo}>CNPJ </Text>
           <Text style={Styles.cardInfoText}>{fornecedor.cnpj}</Text>
         </View>
         <View style={Styles.cardsInfoRow}>
-          <Text style={Styles.cardInfo}>Email: </Text>
+          <Text style={Styles.cardInfo}>Email </Text>
           <Text style={Styles.cardInfoText}>{fornecedor.email}</Text>
+        </View>
+        <View style={Styles.cardsInfoRow}>
+          <Text style={Styles.cardInfo}>Categorias </Text>
+          <Text style={Styles.cardInfoText}>
+            {fornecedor.categorias?.join("\n")}
+          </Text>
         </View>
         <View style={Styles.cardsInfoRow}>
           <Text style={Styles.cardInfo}>Telefone: </Text>

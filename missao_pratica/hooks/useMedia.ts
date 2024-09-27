@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
-
 //TO-DO: Criar lógica para permitir o usuário tirar fotos com a câmera do dispositivo!
 
 // requisita acesso a galeria!
@@ -34,7 +33,7 @@ const selectImageFromGallery = async () => {
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: true,
-    aspect: [1, 1],
+    aspect: [6, 5],
     quality: 1,
   });
   return result.canceled ? null : result.assets[0].uri;

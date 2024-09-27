@@ -3,12 +3,11 @@ import { StyleSheet } from "react-native";
 const Styles = StyleSheet.create({
   card: {
     flexDirection: "row", // Alinha imagem e texto lado a lado
-    padding: 20,
+    padding: 5,
     marginVertical: 10,
     borderRadius: 15,
     borderWidth: 3,
     borderColor: "rgba(165, 148, 249, 1)",
-    elevation: 10,
     alignItems: "center",
   },
   cardImage: {
@@ -33,6 +32,7 @@ const Styles = StyleSheet.create({
   cardInfoText: {
     fontSize: 16,
     flexShrink: 1,
+    width: "100%",
   },
 });
 

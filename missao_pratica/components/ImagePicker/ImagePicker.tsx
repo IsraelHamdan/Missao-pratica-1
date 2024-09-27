@@ -11,11 +11,14 @@ import { useState, forwardRef, useImperativeHandle } from "react";
 import Styles from "./ImagePickerStyles";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import useMedia from "../../hooks/useMedia";
-import Fontisto from "@expo/vector-icons/Fontisto";
+import { useFornecedorContext } from "../../contexts/FornecedorContext";
 
 const ImagePicker = forwardRef((props, ref) => {
   const [visible, setVisible] = useState<boolean>(false);
   const { handleTakeGalleryImage, uri } = useMedia();
+  const { setFornecedorData } = useFornecedorContext();
+  const [imageUri, setImageUri] = useState<string | null>(null);
+
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
 
@@ -23,6 +26,15 @@ const ImagePicker = forwardRef((props, ref) => {
     showModal,
     hideModal,
   }));
+
+  const handleImageSelect = async () => {
+    const imageUri = await handleTakeGalleryImage();
+    if (imageUri) {
+      setImageUri(uri);
+      setFornecedorData((prev) => ({ ...prev, imagem: imageUri }));
+      hideModal();
+    }
+  };
 
   return (
     <Provider>
@@ -44,7 +56,7 @@ const ImagePicker = forwardRef((props, ref) => {
                 onDismiss={hideModal}
                 contentContainerStyle={Styles.modal}>
                 <Text>Escolha da galeria</Text>
-                <Button mode="contained-tonal" onPress={handleTakeGalleryImage}>
+                <Button mode="contained-tonal" onPress={handleImageSelect}>
                   <View style={Styles.icons}>
                     <Ionicons size={48} color={"#A594F9"} name="image" />
                   </View>

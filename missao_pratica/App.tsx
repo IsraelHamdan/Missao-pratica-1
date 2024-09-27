@@ -1,5 +1,4 @@
 import { PaperProvider } from "react-native-paper";
-import { StyleSheet } from "react-native";
 import Cadastro from "./components/cadastroFornecedor/Cadastro";
 import React, { useEffect, useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
@@ -11,6 +10,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import { Props, RootStackParamList } from "./utils/Props";
 import ListaFornecedores from "./components/ListaFornecedor/ListaFornecedor";
+import FornecedorProvider from "./contexts/FornecedorContext";
 
 const Stack = createStackNavigator<RootStackParamList>();
 SplashScreen.preventAutoHideAsync();
@@ -37,14 +37,16 @@ export default function App() {
   }, []);
   if (!appIsReady) return null;
   return (
-    <NavigationContainer>
-      <PaperProvider>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Cadastro" component={Cadastro} />
-          <Stack.Screen name="Lista" component={ListaFornecedores} />
-        </Stack.Navigator>
-      </PaperProvider>
-    </NavigationContainer>
+    <FornecedorProvider>
+      <NavigationContainer>
+        <PaperProvider>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Cadastro" component={Cadastro} />
+            <Stack.Screen name="Lista" component={ListaFornecedores} />
+          </Stack.Navigator>
+        </PaperProvider>
+      </NavigationContainer>
+    </FornecedorProvider>
   );
 }

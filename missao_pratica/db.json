@@ -7,6 +7,44 @@
       "telefone": "7395535131",
       "cnpj": "56494342000160",
       "imagem": "file:///data/user/0/host.exp.exponent/files/image_1727235425907.jpg"
+    },
+    {
+      "id": "0a89",
+      "nome": "Nissan Brasil",
+      "email": "nissanmotors@stelantis.com",
+      "telefone": "1132920192929",
+      "cnpj": "0210929129",
+      "imagem": "file:///data/user/0/host.exp.exponent/files/image_1727312699659.jpg"
+    },
+    {
+      "id": "1f27",
+      "nome": "Empresa X ",
+      "cnpj": "17292039929",
+      "email": "teste11@email.com",
+      "telefone": "20202929",
+      "imagem": "file:///data/user/0/host.exp.exponent/files/image_1727401117169.jpg",
+      "categorias": [
+        "Carros",
+        "Pneus",
+        "Auto-peças",
+        "Acessórios",
+        "roupas",
+        "bebidas"
+      ],
+      "endereco": "Rua Z, Bairro W"
+    },
+    {
+      "id": "05b8",
+      "nome": "Zé Delivery ",
+      "cnpj": "1202030201",
+      "email": "Zedelivery@ze",
+      "telefone": "13920202021",
+      "imagem": "file:///data/user/0/host.exp.exponent/files/image_1727402250441.jpg",
+      "categorias": [
+        "Bebidas",
+        "alimentos"
+      ],
+      "endereco": "Rua A, cam b"
     }
   ]
 }

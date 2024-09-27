@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import useMedia from "./useMedia";
-const api = "http:// 192.168.0.119:3000/fornecedores";
+import { useFornecedorContext } from "../contexts/FornecedorContext";
+const api = "http://192.168.1.11:3000/fornecedores";
 
 export interface Fornecedor {
   nome: string;
@@ -9,8 +10,9 @@ export interface Fornecedor {
   telefone: string;
   email: string;
   imagem?: string;
+  categorias: string[];
+  endereco: string;
 }
-
 const cadastro = async (fornecedor: Fornecedor) => {
   try {
     const res = await axios.post(api, fornecedor);
@@ -36,6 +38,7 @@ export const useFornecedores = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const { handleTakeGalleryImage } = useMedia();
+  const { fornecedorData } = useFornecedorContext();
 
   const findFornecedores = async () => {
     setIsLoading(true);
@@ -49,17 +52,33 @@ export const useFornecedores = () => {
       setIsLoading(false);
     }
   };
+
+  const convertCategorias = (categoriasString: string): string[] => {
+    return categoriasString.split(",").map((cat) => cat.trim());
+  };
+
+  const handleSaveFornecedor = async (
+    fornecedor: Partial<Fornecedor>
+  ): Promise<void> => {
+    setIsLoading(true);
+    setErrorMessage(null);
+    try {
+      const novoFornecedor: Fornecedor = {
+        ...(fornecedorData as Fornecedor),
+        ...(fornecedor as Fornecedor),
+      };
+      await postFornecedoresOnJSON(novoFornecedor);
+    } catch (err) {
+      console.error(`Erro ao salvar o fornecedor: ${err}`);
+    }
+  };
   const postFornecedoresOnJSON = async (fornecedor: Fornecedor) => {
     setIsLoading(true);
     setErrorMessage(null);
     try {
-      const novoFornecedor = await cadastro(fornecedor);
-      if (novoFornecedor) {
-        console.log(
-          "🚀 ~ postFornecedoresOnJSON ~ novoFornecedor:",
-          novoFornecedor
-        );
-        setFornecedores((prev) => [...prev, novoFornecedor]);
+      const fornecedorCadastrado = await cadastro(fornecedor);
+      if (fornecedorCadastrado) {
+        setFornecedores((prev) => [...prev, fornecedorCadastrado]);
       }
     } catch (err: any) {
       console.error(err);
@@ -68,11 +87,12 @@ export const useFornecedores = () => {
       setIsLoading(false);
     }
   };
+
   return {
     fornecedores,
     isLoading,
     errorMessage,
     findFornecedores,
-    postFornecedoresOnJSON,
+    handleSaveFornecedor,
   };
 };
